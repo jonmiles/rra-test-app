@@ -35,7 +35,7 @@ export function TodoItem({
         <TextInput
           autoFocus={!item.label}
           value={label}
-          style={styles.input}
+          style={[styles.input, item.complete ? styles.linethrough : undefined]}
           onChangeText={text => {
             setLabel(text);
           }}
@@ -75,5 +75,10 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+    fontSize: 20,
+  },
+  linethrough: {
+    textDecorationLine: 'line-through',
+    textDecorationStyle: 'solid',
   },
 });

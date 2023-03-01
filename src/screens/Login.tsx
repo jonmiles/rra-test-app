@@ -19,6 +19,7 @@ export function Login(): JSX.Element {
     }
 
     if (!error && ready && initiated && user) {
+      setInitated(false);
       navigation.navigate('Todos');
     }
 
@@ -32,7 +33,10 @@ export function Login(): JSX.Element {
   const handleLogin = async () => {
     setInitated(true);
     if (!user) {
-      await authorize({scope: 'profile openid'});
+      await authorize({
+        scope: 'openid email profile',
+        prompt: 'login',
+      });
     }
   };
 
