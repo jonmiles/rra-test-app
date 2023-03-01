@@ -63,7 +63,7 @@ export function Todos(): JSX.Element {
               icon={props => <Icon name="logout" {...props} />}
               onPress={async () => {
                 await clearCredentials;
-                // await clearSession();
+                await clearSession();
                 navigation.navigate('Login');
               }}
             />
@@ -108,7 +108,9 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   addButton: {
-    width: 60,
+    width: 56,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   list: {
     paddingBottom: 40,
