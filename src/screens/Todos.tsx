@@ -62,7 +62,7 @@ export function Todos(): JSX.Element {
               color="background"
               icon={props => <Icon name="logout" {...props} />}
               onPress={async () => {
-                await clearCredentials;
+                await clearCredentials();
                 await clearSession();
                 navigation.navigate('Login');
               }}
